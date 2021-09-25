@@ -1,5 +1,5 @@
 .historyLabel {
-	visibility: visible;
-	height: 30;
+	visibility: hidden;
+	height: 30px;
 	width: auto;
 }
