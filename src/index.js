@@ -7,8 +7,10 @@ const STREAMER = "enduo"
 const { messages } = await Parse(STREAMER)
 const RESET_DELAY = 3
 const HISTORY_LEN = 3
-const HISTORY = Array(HISTORY_LEN)
 const HISTORY_LABELS = Array(HISTORY_LEN)
+
+// const EXPR_MAP
+// const KEYWORD_MAP
 
 const VISIBLE = "visible"
 const HIDDEN = "hidden"
@@ -32,12 +34,11 @@ function Message(text, context) {
 
 	LastMsgID = thisID
 	for (let i = HISTORY_LEN; i > 0; i--) {
-		HISTORY[i].html = HISTORY[i - 1].html
-		HISTORY[i].style.visibility = HISTORY[i].html != null ? VISIBLE : HIDDEN
-		console.log(i, HISTORY[i].style.visibility, HISTORY[i].html != null)
+		HISTORY_LABELS[i].innerHTML = HISTORY_LABELS[i - 1].innerHTML
+		HISTORY_LABELS[i].style.visibility = HISTORY_LABELS[i].innerHTML != null ? VISIBLE : HIDDEN
 	}
-	HISTORY[0].html = text
-	HISTORY[0].style.visibility = VISIBLE
+	HISTORY_LABELS[0].innerHTML = text
+	HISTORY_LABELS[0].style.visibility = VISIBLE
 
 	setTimeout(function(){
 		ResetIdle(thisID)
@@ -53,13 +54,11 @@ for (let i = 0; i <= HISTORY_LEN; i++) {
 	hist.style.visibility = "hidden"
 
 	$("#feed").prepend(hist)
-	HISTORY[i] = hist
+	HISTORY_LABELS[i] = hist
 }
 
 
-for (labl in HISTORY_LABELS) {
-	console.log(labl)
-}
+$("#expression").attr("src", "media/test.gif")
 
 
 // Handle message
