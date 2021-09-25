@@ -1,0 +1,6 @@
+{
+	"?" : "CONFUSED",
+	"!" : "SURPRISED",
+	"Hi" : "WAVE",
+	"Bye" : "WAVE"
+}
